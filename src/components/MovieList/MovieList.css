@@ -1,4 +1,8 @@
 .movies {
     display : flex;
     flex-wrap: wrap;
+    margin: 10px;
+}
+.movie-card{
+    margin: 10px;
 }

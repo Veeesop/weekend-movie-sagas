@@ -22,13 +22,8 @@ const MovieView = () => {
                     <img src={item.poster}/>
                     <p>{item.description}</p>
                 </div>
-                
             ))}
-            
-            <p></p>
         </div>
-        
-
     )
 }
 
