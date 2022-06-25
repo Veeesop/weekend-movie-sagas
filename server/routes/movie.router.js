@@ -17,10 +17,11 @@ router.get("/", (req, res) => {
 
 router.get(`/movieView/:id`, (req, res) => {
   const sqlQuery = `
-  SELECT  ARRAY_AGG(movies.title), ARRAY_AGG(genres.name), ARRAY_AGG(movies.description), ARRAY_AGG(movies.id) FROM movies
+  SELECT ARRAY_AGG(genres.name) as name, movies.description as description, movies.id as id, movies.poster as poster, movies.title as title FROM movies
   JOIN movies_genres ON movies_genres.movie_id = movies.id
   JOIN genres ON movies_genres.genre_id = genres.id
   WHERE movies.id = $1
+  GROUP BY movies.id;
   `;
   const sqlParams = [req.params.id];
 
