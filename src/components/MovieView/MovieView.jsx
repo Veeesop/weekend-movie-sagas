@@ -13,6 +13,7 @@ const MovieView = () => {
             payload: params.id
         })
    }, [])
+   console.log(pageData)
     return (
         <div>
             <h2>this is a view for {params.id}</h2>
@@ -20,7 +21,10 @@ const MovieView = () => {
                 <div key={item.id}>
                     <h2>{item.title}</h2>
                     <img src={item.poster}/>
+                    <h3>Genres:</h3>
+                    {item.name.map(genre => (<h4>{genre}</h4>))}
                     <p>{item.description}</p>
+                    
                 </div>
             ))}
         </div>

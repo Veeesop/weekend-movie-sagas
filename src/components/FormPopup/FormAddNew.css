@@ -1,0 +1,10 @@
+#addMovieForm {
+    display: flex;
+    padding:10px;
+    justify-content: center;
+}
+
+.form-input{
+    display: flex;
+    padding: 10px;
+}

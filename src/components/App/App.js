@@ -2,15 +2,15 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import MovieList from "../MovieList/MovieList";
 import MovieView from "../MovieView/MovieView";
-import FormPopup from "../FormPopup/FormPopup";
+import FormAddNew from "../FormPopup/FormAddNew";
 
 function App() {
   return (
     <div className="App">
-      <h1>The Movies Saga!</h1>
+      <h1 className="title-saga">The Movies Saga!</h1>
       <Router>
         <Route path="/" exact>
-          <FormPopup />
+          <FormAddNew />
           <MovieList />
         </Route>
 

@@ -15,6 +15,18 @@ import axios from "axios";
 function* rootSaga() {
   yield takeEvery("FETCH_MOVIES", fetchAllMovies);
   yield takeEvery("SET_PAGE_VIEW", fetchPageData);
+  yield takeEvery("ADD_MOVIE", addMovie);
+  yield takeEvery("FETCH_GENRES", fetchGenres);
+}
+
+function* fetchGenres() {
+  try {
+    const genres = yield axios.get("/api/genre");
+    yield put({ type: "SET_GENRES", payload: genres.data });
+    console.log(genres.data);
+  } catch (err) {
+    console.log("error in fetchGenres");
+  }
 }
 
 function* fetchPageData(action) {
@@ -24,6 +36,15 @@ function* fetchPageData(action) {
     yield put({ type: "SET_DETAILS_VIEW", payload: pageData.data });
   } catch (err) {
     console.log("error in fetchPageData", err);
+  }
+}
+
+function* addMovie(action) {
+  try {
+    yield axios.post("/api/movie", action.payload);
+    yield put({ type: "FETCH_MOVIES" });
+  } catch (err) {
+    console.log("error in addMovie", err);
   }
 }
 
