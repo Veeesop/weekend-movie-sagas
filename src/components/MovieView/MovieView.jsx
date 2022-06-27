@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
-
+import { Link } from 'react-router-dom';
 
 const MovieView = () => {
     const dispatch = useDispatch();
@@ -26,6 +26,7 @@ const MovieView = () => {
                     
                 </div>
             ))}
+       <Link to='/'>HOME</Link>
         </div>
     )
 }
