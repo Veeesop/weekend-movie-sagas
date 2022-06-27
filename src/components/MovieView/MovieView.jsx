@@ -16,7 +16,6 @@ const MovieView = () => {
    console.log(pageData)
     return (
         <div>
-            <h2>this is a view for {params.id}</h2>
             {pageData.map(item => (
                 <div key={item.id}>
                     <h2>{item.title}</h2>
